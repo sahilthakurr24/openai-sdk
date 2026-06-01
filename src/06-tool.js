@@ -27,17 +27,17 @@ messages.push(assistantResponse);
 if (assistantResponse.tool_calls) {
   const tool_call = assistantResponse.tool_calls[0];
   const args = JSON.parse(tool_call.function.arguments);
-  const toolResponse = await calculator(args.op,args.a, args.b);
+  const toolResponse = await calculator(args.op, args.a, args.b);
   console.log("+++++++ tool response +++++++");
 
   messages.push({
     role: "tool",
     tool_call_id: tool_call.id,
     name: tool_call.name,
-    content: String(toolResponse)
+    content: String(toolResponse),
   });
 }
-//one more request to the agent to get the final output 
+//one more request to the agent to get the final output
 const secondResponse = await client.chat.completions.create({
   model,
   messages,
