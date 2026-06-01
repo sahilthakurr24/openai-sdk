@@ -23,7 +23,7 @@ console.log(assistantResponse);
 console.log(assistantResponse.tool_calls);
 
 messages.push(assistantResponse);
-
+//extracting the args from tool_calls object
 if (assistantResponse.tool_calls) {
   const tool_call = assistantResponse.tool_calls[0];
   const args = JSON.parse(tool_call.function.arguments);
@@ -37,7 +37,7 @@ if (assistantResponse.tool_calls) {
     content: String(toolResponse)
   });
 }
-
+//one more request to the agent to get the final output 
 const secondResponse = await client.chat.completions.create({
   model,
   messages,
