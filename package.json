@@ -1,0 +1,19 @@
+{
+  "name": "get-started",
+  "version": "1.0.0",
+  "description": "OpenAI SDK learning sandbox with one file per concept",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "list": "node src/index.js list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.2",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "openai": "^6.39.1"
+  }
+}
